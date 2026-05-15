@@ -7,34 +7,34 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// Home route
 app.get("/", (req, res) => {
-    res.send("Career Guidance Backend is Running 🚀");
+    res.send("Career Guidance AI Running");
 });
 
-// Chat API (simple logic)
 app.post("/chat", (req, res) => {
-    const userMessage = req.body.message.toLowerCase();
+    const msg = req.body.message.toLowerCase();
 
-    let reply = "Sorry, I didn't understand that. Try asking about careers.";
+    let reply = "I am Career AI Assistant";
 
-    if (userMessage.includes("python")) {
-        reply = "Python is great for AI, Data Science, and Web Development.";
+    if (msg.includes("python")) {
+        reply = "Python is best for AI, ML, Data Science.";
     }
-    else if (userMessage.includes("web")) {
-        reply = "Web development includes HTML, CSS, JavaScript, React.";
+    else if (msg.includes("java")) {
+        reply = "Java is used in backend and Android apps.";
     }
-    else if (userMessage.includes("ai")) {
-        reply = "AI career includes Machine Learning, Deep Learning, and Data Science.";
+    else if (msg.includes("ai")) {
+        reply = "AI includes Machine Learning, Deep Learning, Data Science.";
     }
-    else if (userMessage.includes("job")) {
-        reply = "Top jobs: Software Engineer, Data Analyst, AI Engineer.";
+    else if (msg.includes("career")) {
+        reply = "Choose Web Dev, AI Engineer, Data Analyst.";
+    }
+    else if (msg.includes("hello")) {
+        reply = "Hello 👋 Welcome to Echo Hackers Career AI";
     }
 
     res.json({ reply });
 });
 
-// Start server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
